@@ -45,7 +45,8 @@ function run_drutes {
     
   
   echo $val > objfnc.val
-
+  
+  gnuplot < ../plot.gnuplot
   cd ..
     
 }
