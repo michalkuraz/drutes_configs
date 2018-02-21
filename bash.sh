@@ -47,12 +47,15 @@ function run_drutes {
   echo $val > objfnc.val
   
   gnuplot < ../plot.gnuplot
+  
+  echo $ka $kd `echo "l($ka)" | bc -l` `echo "l($kd)" | bc -l` $val >> ../totvals
   cd ..
     
 }
 
 
 rm -f drutes.vals
+rm -f totvals
 
 #count the number of processes       
 let nproc=0
