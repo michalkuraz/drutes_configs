@@ -1,10 +1,14 @@
+ A = 0.113173248618806
+ k = 0.00000515892375196475
+ s = 0.000855461248783132
 
+ f(x) =  (s/A*(1-exp(-A*sqrt(x*3600)))+k*x*3600)*100
  
- set xlabel "time [min]"
+ set xlabel "time [hrs]"
  
- set ylabel "pressure head [cm]" 
+ set ylabel "cumulative infiltration [cm]" 
  
- set xrange [0:300]
+ set xrange [0:0.8]
  
  set grid
 
@@ -14,11 +18,7 @@
  
  set output "plot.eps"
  
- plot "out/obspt_RE_matrix-1.out" u 1:2 w l lc rgb "blue" lw 2 title "point 1 - model" , "drutes.conf/inverse_modeling/experiment.dat" u 1:2 title "point 1 - experiment",  "out/obspt_RE_matrix-2.out" u 1:2 w l lc rgb "red" lw 2 title "point 2 - model" , "drutes.conf/inverse_modeling/experiment.dat" u 1:3 title "point 2 - experiment", "out/obspt_RE_matrix-3.out" u 1:2 w l lc rgb "violet" lw 2 title "point 3 - model" , "drutes.conf/inverse_modeling/experiment.dat" u 1:4 title "point 3 - experiment"
+ plot f(x) lt 1 title "experimental data"  , "out/obspt_RE_matrix-1.out" u 1:5 w l lt 3 title "RE model data" 
 
-set terminal png
 
-set output "plot.png"
-
-replot
 
