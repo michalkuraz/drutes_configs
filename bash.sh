@@ -28,10 +28,13 @@ function run_drutes {
   read val < objfnc.val
   
   echo "$1 $val" >> ../drutes.vals
+  
+  
+ gnuplot < ../plot.gnuplot
 
   cd ..
 
-  gnuplot < ../plot.gnuplot
+ 
     
 }
 
