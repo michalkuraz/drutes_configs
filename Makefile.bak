@@ -12,11 +12,11 @@ HEADERS = cmlfile.h gartou.h general.h logo.h solution.h function.h my_mpi.h opt
 ARCHIVE = opt1-0001-`date +'%y-%m-%d'`.tgz
 
 #MO_MACRO	= -D__MULTIOBJECTIVE__
-#DEBUG_MACRO	= -D__DEBUG__
+DEBUG_MACRO	= -D__DEBUG__
 
 M_SYS_LIBS        = -lm
 
-#PAR_MACRO	= -D__PARALLEL__ -D__PAR_DEBUG__
+$PAR_MACRO	= -D__PARALLEL__ -D__PAR_DEBUG__
 #PAR_MACRO	= -D__PARALLEL__
 
 #ifdef __PARALLEL__
@@ -44,8 +44,8 @@ M_SYS_LIBS        = -lm
 #CFLAGS = -g -W -Wall
 CFLAGS = -g $(PAR_MACRO)
 #CFLAGS = -g
-#CC = mpic++ $(CFLAGS) $(DEBUG_MACRO)
-CC = g++ $(CFLAGS) $(DEBUG_MACRO)
+CC = mpic++ $(CFLAGS) $(DEBUG_MACRO)
+#CC = g++ $(CFLAGS) $(DEBUG_MACRO)
 RM = rm -f
 MV = mv
 CP = cp
@@ -94,7 +94,7 @@ clean:
 # make cleanout
 
 cleanout:
-	rm -f *.out* *.val* results pars.in *.sav
+	rm -f *.out* results
 
 # make archive
 
