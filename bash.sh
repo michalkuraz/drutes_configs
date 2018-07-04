@@ -43,7 +43,7 @@ m=`echo "1-1/$n" | bc -l`
 
   
   #execute drutes, send the output into "black hole"
-  bin/drutes > /dev/null
+  bin/drutes -o optim --tmax 17 s > /dev/null
 #   
 #   let val=0
 #   
