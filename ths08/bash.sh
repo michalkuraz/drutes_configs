@@ -30,7 +30,7 @@ function run_drutes {
   echo "$1 $val" >> ../drutes.vals
   
   
- gnuplot < ../plot.gnuplot
+# gnuplot < ../plot.gnuplot
 
   cd ..
 
