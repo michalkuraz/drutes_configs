@@ -1,0 +1,15 @@
+
+ SADE algorithm is used: 
+
+ pool_rate: 6 
+ SelectedSize: 24 
+ PoolSize: 48 
+ radioactivity: 0.200000 
+ local_radioactivity: 0.200000 
+ gradient: 0 
+ cross_rate: 0.500000 
+ mutation_rate: 0.500000 
+ mutagen_rate: 2000.000000 
+
+ ++       48 OBJs: -0.54398 TMP: -0.54398 
+   5.3679   0.3197  -7.3534   2.4827

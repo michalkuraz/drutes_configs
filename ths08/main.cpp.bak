@@ -1,0 +1,135 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+#include "cmlfile.h"
+#include "logo.h"
+#include "drutes.h"
+#include "test.h"
+
+#if !defined ( __GARTOU__ )
+#include "gartou.h"
+#endif
+
+#if defined ( __PARALLEL__ )
+#include <mpi.h>
+#include <unistd.h>
+#include "my_mpi.h"
+#endif
+
+// -------------------------------------- MAIN -------------------------------------------------------------
+//
+// usage: pasade [-r <seed>] [-p<printlevel>] [-s<savelevel>]
+//
+
+
+int main ( int oargc, char *oargv[] )
+{
+#if defined ( __PARALLEL__ )
+  my_mpi M ;
+
+  MPI_Init( &oargc, &oargv ) ;
+  MPI_Comm_size( MPI_COMM_WORLD, &M.size ) ;
+  MPI_Comm_rank( MPI_COMM_WORLD, &M.rank ) ;
+  gethostname( M.uname, 255 );
+
+  if( M.size<2 ) {
+    printf( "-- Use more processes! Exiting ... -- \n" ) ;
+    MPI_Finalize() ;
+    exit(0) ;
+  }
+
+  if( M.size>max_processes ) {
+    printf( "-- Too much processes! Exiting ... --- \n" ) ;
+    MPI_Finalize() ;
+    exit(0) ;
+  }
+
+  printf( " process #%d of %d is working on %s ... \n", M.rank+1, M.size, M.uname ) ;
+  fflush( NULL ) ;
+#endif
+
+  initialize_randoms ();
+  gartou GA;
+
+  cmlfile f( "parameters.cfg" ) ;
+  f.set_labels( 1 ) ;
+  f.set_label_string(  0,"MainCallsLimit" ) ;
+  f.get_value( 0,GA.fitness_calls_limit ) ;
+  f.close() ;
+  //GA.fitness_calls_limit = 1000;
+
+  GA.vilog = 1;
+  GA.save = 1;
+  GA.vilog_gati = 0;
+
+#if defined ( __PARALLEL__ )
+  GA.F = new drutes( &M );
+#else
+  GA.F = new drutes;
+  //GA.F = new test;
+#endif
+
+#if defined ( __PARALLEL__ )
+  if( M.rank==0 ) 
+    {
+#define l_time    0
+#define f_time    0
+      
+      logo L ;
+
+      scan_cmd_line_direct( oargc,oargv,'p',L.printlevel ) ;
+      scan_cmd_line_direct( oargc,oargv,'s',L.savelevel ) ;
+
+      L.printlevel = 1 ;
+      L.savelevel = 1 ;
+
+      L.set_levels( 1 ) ;
+      L.set_level_name( l_time,    "time" ) ;
+      
+      L.set_files( 1 ) ;
+      L.set_file_name( f_time, "zpartime.out", mode_rewrite ) ;
+      L.load_files() ;
+
+      L.start_time() ;
+
+      GA.run_master ( &M );
+
+      L.print_time ( l_time, "Time for one computation : ", tag_cont_time, GA.get_calls() ) ;
+      L.print_time ( l_time, "Time for whole program :   ", tag_cont_time ) ;
+      L.save_time ( l_time, f_time, "" ) ;
+      L.print_sys_time( l_time ) ;
+    }
+  else
+    {
+      GA.run_slave ( &M );
+    }
+#else
+
+#define l_time    0
+      logo L ;
+      //scan_cmd_line_direct( oargc,oargv,'p',L.printlevel ) ;
+      //scan_cmd_line_direct( oargc,oargv,'s',L.savelevel ) ;
+      L.printlevel = 1 ;
+      L.set_levels( 1 ) ;
+      L.set_level_name( l_time,    "time" ) ;
+      L.start_time() ;
+
+      GA.run ();
+
+      L.print_time ( l_time, "Time for one computation : ", tag_cont_time, GA.get_calls() ) ;
+      L.print_time ( l_time, "Time for whole program :   " ) ;
+      L.print_sys_time( l_time ) ;
+#endif
+
+
+  delete GA.F;
+
+#if defined ( __PARALLEL__ )
+  printf( " process %2d has %7ld solved. \n", M.rank, M.solved ) ;
+
+  MPI_Finalize();
+#endif
+
+  exit(0) ;
+}

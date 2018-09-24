@@ -1,0 +1,223 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <sys/types.h>
+#include <time.h>
+
+#include "cmlfile.h"
+#include "opt1.h"
+
+
+#if defined ( __PARALLEL__ )
+opt1::opt1 ( my_mpi *oM ) : objective_function ()
+#else
+opt1::opt1 ( void ) : objective_function ()
+#endif
+{
+#if defined ( __PARALLEL__ )
+  M=oM ;
+#endif
+
+    long i;
+    FILE *g ;
+
+    Dim = 5;
+
+#if defined ( __MULTIOBJECTIVE__ )
+    Obj = 2 ;
+#else
+    Obj = 1 ;
+#endif
+
+    Domain = new p_double [Dim];
+    for ( i=0; i<Dim; i++ )
+    {
+        Domain[i] = new double [3];
+        Domain[i][2] = 0.0;
+    }
+/*
+  p1 \ in ( 0.0001, 0.05 )
+  p2 \in ( 1.050, 2.10 )
+  p3 \in ( 0.250, 0.90 )
+  p4 \in ( 0.0050, 10.00 )
+  p5 \in ( 0.000, 0.10 )
+*/
+
+    Domain[0][0]=0.0001;
+    Domain[0][1]=0.05;
+    
+    Domain[1][0]=1.050;
+    Domain[1][1]=2.10;
+    
+    Domain[2][0]=0.250;
+    Domain[2][1]=0.90;
+    
+    Domain[3][0]=0.0050;
+    Domain[3][1]=10.00;
+    
+    Domain[4][0]=0.000;
+    Domain[4][1]=0.10;
+  
+    
+    //optimum = new double[Obj] ;
+    //for ( i=0; i<Obj; i++ )
+    //  optimum[i] = 0.0;
+
+
+    //precision = 1e-1;
+    Return_to_domain=1;
+
+//     cmlfile f( "parameters.cfg" ) ;
+//     
+//     f.set_labels( 1 ) ;
+//     f.set_label_string(  0,"OsminaPrecision" ) ;
+//      
+//     f.get_value( 0,precision ) ;
+//  
+//     f.close() ;
+
+    idx = 0 ;
+
+
+    // cleaning output file                                                                                                                                                                                           
+    g = fopen( "opt1.sav", "wt" );
+    fclose( g );
+ 
+
+}
+
+opt1::~opt1 ( void ) 
+{
+   for ( int i=0; i<Dim; i++ )
+    {
+      if( Domain[i] ) delete [] Domain[i] ;
+    }
+   if( Domain ) delete [] Domain ;
+   //if( optimum ) delete [] optimum ;
+}
+
+
+void opt1::value ( solution& S )
+{
+    FILE *f;
+    char out_file[maxstring] ; 
+    double a ;
+    objective_function::value ( S ) ;
+
+#if defined ( __PARALLEL__ )
+    idx = S.id;
+#else
+    idx++ ;
+    S.id = idx ;
+#endif
+
+    run_oofem( S ) ;
+
+    sprintf( out_file, "objfnc_%ld.val", S.id ) ; 
+    f = fopen( out_file, "rt" );
+    fscanf( f, "%lf", &a );
+    fclose( f ); 
+
+    printf ( "@@@ %ld %lf \n", idx, a ) ;
+
+#if defined ( __MULTIOBJECTIVE__ )
+
+  S.value[0] = a ;
+  S.value[1] = b ;
+  S.value[2] = c ;
+
+#else
+
+  S.value[0] = -a ;
+
+#endif
+
+  long j ;
+  double tmp=0.0 ;
+
+  f = fopen( "opt1.sav", "at" );
+  for ( j=0; j<Dim; j++ ) {
+    fprintf( f, " %10g", S[j] );
+  }
+  for ( j=0; j<Obj; j++ ) {
+    //tmp += S.value[j] ;
+    fprintf( f, " %10g", S.value[j] );
+  }
+  //S.tmp = tmp ;
+  //fprintf( f, " %10g", tmp );
+  fprintf( f, "\n" ) ;
+
+  fclose( f );
+}
+
+void opt1::run_oofem ( solution& S )
+{
+  char** arguments = new char*[ 8 ];
+    
+  arguments[0] = new char[maxstring] ;
+  arguments[1] = new char[maxstring] ;
+  arguments[2] = new char[maxstring] ;
+  arguments[3] = new char[maxstring] ;
+  arguments[4] = new char[maxstring] ;
+  arguments[5] = new char[maxstring] ;
+  arguments[6] = new char[maxstring] ;
+  arguments[7] = NULL ;
+
+  sprintf( arguments[0], "./bash.sh" ) ;
+  sprintf( arguments[1], "%ld", S.id );
+  sprintf( arguments[2], "%f", S[0] );
+  sprintf( arguments[3], "%f", S[1] );
+  sprintf( arguments[4], "%f", S[2] );
+  sprintf( arguments[5], "%f", S[3] );
+  sprintf( arguments[6], "%f", S[4] );
+  
+#if defined ( __DEBUG__ )
+  printf( " I will execute: %s %s %s %s %s %s %s \n", arguments[0], arguments[1], arguments[2], arguments[3], arguments[4], arguments[5], arguments[6]  );
+#endif
+
+  pid_t cpid, w;
+  int status;
+
+  cpid = fork();
+  if (cpid == -1) { perror("fork"); exit(EXIT_FAILURE); }
+
+  if (cpid == 0) {            /* Code executed by child */
+    //
+    // Here, the outside program is run
+    //
+    execvp( arguments [0], arguments ) ; 
+  } else {                    /* Code executed by parent */
+    do {
+      w = waitpid(cpid, &status, 0 );
+      if (w == -1) { perror("waitpid"); exit(EXIT_FAILURE); }
+      
+      if (WIFEXITED(status)) {
+#if defined ( __DEBUG__ )
+	printf(" exited, status=%d\n", WEXITSTATUS(status));
+#endif
+      } else if (WIFSIGNALED(status)) {
+	printf("!PROGRAM killed by signal %d\n", WTERMSIG(status));
+      } else if (WIFSTOPPED(status)) {
+	printf("!PROGRAM stopped by signal %d\n", WSTOPSIG(status));
+      } 
+    } while (!WIFEXITED(status) && !WIFSIGNALED(status));
+  }
+
+  delete arguments[0] ;
+  delete arguments[1] ;
+  delete arguments[2] ;
+  delete arguments[3] ;
+  delete arguments[4] ;
+  delete arguments[5] ;
+  delete arguments[6] ;
+  delete [] arguments ;
+
+    
+#if defined ( __DEBUG__ )
+  printf( " PROGRAM is done. O.K. \n\n" ) ;
+#endif
+
+}
+
