@@ -18,7 +18,7 @@
 !! - \subpage ridka "Ridka matice"
 module mtx
     use typy
-    implicit none
+    implicit none 
     private
 
     !> obecna matice
@@ -61,6 +61,8 @@ module mtx
         procedure :: dump => dumpmatrix
         !> da pocet nenul v matici
         procedure :: nonzero => nzmatrix
+        !> vrati seznam nenulovych radku
+        procedure :: nzrows => nzrowsmatrix
         !> textova varianta spy
         procedure, non_overridable :: spy => spymatrix
         !> nasobi vektorem, vrati soucin matice krat vektor
@@ -90,9 +92,11 @@ module mtx
         procedure :: Read
         !> zapis do souboru
         procedure :: Write
+        !> nasobi jeden radek
+        procedure  mulrow
     end type matrix
-
-
+! 
+! 
     !> interface pro ziskani prvku
     abstract interface
         !> funkce pro ziskani prvku
@@ -124,17 +128,17 @@ module mtx
             real(kind=rkind), intent(in) :: r
         end subroutine
     end interface
-
-    public :: mtxtest
-    public :: estimeigvalues
-
+! 
+!     public :: mtxtest
+!     public :: estimeigvalues
+! 
     contains
-
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    !! veci pro matrix - zcela univerzalni
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
+! 
+!     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!     !! veci pro matrix - zcela univerzalni
+!     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! 
+! 
     !> nastavi podrobnost behovych reportu
     !! \param A ovlivnena matice
     !! \param level pozadovana uroven podrobnosti
@@ -165,7 +169,7 @@ module mtx
         v = v + r
         call a%set(v,i,j)
     end subroutine addmatrix
-
+! 
     !> rutina pro inicializaci
     subroutine initmatrix(a,n,m)
         use typy
@@ -182,7 +186,7 @@ module mtx
 
 
     !> vrati pocet radku
-    pure function getnmatrix(a) result(res)
+   pure function getnmatrix(a) result(res)
         use typy
         implicit none
         !> matice
@@ -363,27 +367,30 @@ module mtx
         !> matice
         class(matrix), intent(in) :: a
         integer(kind=ikind) :: i,j, nz
-        character(len=a%getm()) :: radek
+!         character(len=a%getm()) :: radek
         character(len=8) :: fmts
+        
+        
+        write(fmts,fmt=*) "function disabled due gcc 8.0 bugs"
 
-        nz = 0
-        write(fmts,fmt="(a2,i5,a1)") "(a",a%m,")"
-        do i=1,a%getn()
-            do j=1,a%getm()
-                if (a%get(i,j) == 0.0_rkind) then
-                radek(j:j) = '.'
-                else
-                    radek(j:j) = 'X'
-                    nz = nz + 1
-                end if
-            end do
-            print fmts,radek
-        end do
-        print *, " pocet radek=", A%getn()
-        print *, " pocet sloupcu",A%getm()
-        print *,"celkovy pocet nenul=",nz
+!         nz = 0
+!         write(fmts,fmt="(a2,i5,a1)") "(a",a%m,")"
+!         do i=1,a%getn()
+!             do j=1,a%getm()
+!                 if (a%get(i,j) == 0.0_rkind) then
+!                 radek(j:j) = '.'
+!                 else
+!                     radek(j:j) = 'X'
+!                     nz = nz + 1
+!                 end if
+!             end do
+!             print fmts,radek
+!         end do
+!         print *, " pocet radek=", A%getn()
+!         print *, " pocet sloupcu",A%getm()
+!         print *,"celkovy pocet nenul=",nz
     end subroutine spymatrix
-
+! 
     !> vytiskne matici
     subroutine printmatrix(a,ncol, width, caption)
         use typy
@@ -465,6 +472,7 @@ module mtx
 
     !> nasobi matici vektorem
     function mulmatrix(a,x, count) result(y)
+        implicit none
         !> matice
         class(matrix), intent(in) :: a
         !> vektor
@@ -592,8 +600,8 @@ module mtx
         m = C%getm()
         p = B%getm()
         i = C%getn()
-        j = A%getn()
-        k = A%getm()
+        j = n
+        k = m
         call cpu_time(t1)
         call A%init(j,k)
         if ((p/=i) .or. (j/=n) .or. (m/=k)) print *,"nesedi rozmery"
@@ -699,8 +707,8 @@ module mtx
         y = sqrt(y)
         print *,"normF konci"
     end function normFmatrix
-
-
+! 
+! 
     !> vybere submatici
     !! \param A matice
     !! \param ii radkove indexy
@@ -753,14 +761,14 @@ module mtx
 
         open(newunit=fil,file=name)
         read(fil,*) n,m,nz
-        print *, n, m, nz
+        !print *, n, m, nz
         call A%init(n,m)
         do i=1,nz
             read(fil,*) n,m,wrk
             call A%set(wrk,n,m)
         end do
         close(fil)
-        call A%print()
+        !call A%print()
     end subroutine Read
 
     subroutine Write(A,name)
@@ -780,10 +788,37 @@ module mtx
             end do
         end do
         close(fil)
-        call A%print()
+        !call A%print()
     end subroutine Write
 
+    !> spocita skalarni soucin i-teho radku matice a vektoru
+    function mulrow(A,x,i, count) result(y)
+        implicit none
+        class(matrix), intent(in) :: A
+        real(kind=rkind), dimension(:), intent(in) :: x
+        integer(kind=ikind), intent(in) :: i
+        real(kind=rkind) :: y
+        type(tcount), intent(inout), optional :: count
+        real(kind=rkind), dimension(:), allocatable :: vls
+        integer(kind=ikind), dimension(:), allocatable :: jj
+        integer(kind=ikind) :: nelem, j
 
+
+        call A%getrow(i,vls,jj,nelem)
+        y = 0
+        do j = 1,nelem
+           y = y + vls(j)*x(jj(j))
+        end do
+        if (present(count)) then
+           count%ad = count%ad + nelem
+           count%mul = count%mul + nelem
+        end if
+    end function mulrow
+
+
+
+    !> testy maticovych operaci
+    !! vstupni parametr slouzi jen jako sablona pro volbu potomka
     subroutine mtxtest(A)
         implicit none
         class(matrix), intent(in) :: A
@@ -842,6 +877,7 @@ module mtx
 
     end subroutine mtxtest
 
+    !> v A vrati transpozici matice B
     subroutine transpose(A,B)
         class(matrix), intent(in out) :: A
         class(matrix), intent(in)     :: B
@@ -862,7 +898,33 @@ module mtx
 
     end subroutine transpose
 
+    !> vytvori seznam radku matice obsahujicich aspon jeden prvek
+    function nzrowsmatrix(A) result(lst)
+        class(matrix), intent(in) :: A
+        integer(kind=ikind), dimension(:), allocatable :: lst
+        integer(kind=ikind) :: i, cnt, run, nelem
+        real(kind=rkind), dimension(:), allocatable :: v
+        integer(kind=ikind), dimension(:), allocatable :: jj
+        ! napred spocitame kolik toho bude run == 1
+        ! pak to udelame run == 2
+        do run = 1,2
+            cnt = 0
+            do i = 1, A%getn()
+                call A%getrow(i,v,jj,nelem)
+                if (nelem /= 0) then
+                    cnt = cnt + 1
+                    if (run==2) lst(cnt) = i
+                end if
+            end do
+            if (run==1) allocate(lst(1:cnt))
+        end do
+    end function nzrowsmatrix
 
+
+
+
+    !> spocita nejvetsi a nejmensi vlastni cislo
+    !! uziva mocninnou metodu, tedy tichy predpoklad je symetrie
     subroutine estimeigvalues(A,lmin,lmax)
         use typy
         implicit none
@@ -887,6 +949,7 @@ module mtx
         allocate(v4(1:n))
 
         v1 = 1
+        v1(1)=3
         v3 = v1
         lmax = 1
         lmin = 1
