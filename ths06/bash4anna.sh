@@ -12,9 +12,9 @@ function run_drutes {
 
   cd $1
   
-  a=$3
-  n=$4
-  Ks=$5
+  a=$4
+  n=$5
+  Ks=$6
   ths="0.6"
   Ss="0.0"
 
@@ -25,7 +25,7 @@ function run_drutes {
   bin/drutes -o optim > /dev/null
   
   
-  cat out/obspt_RE_matrix-1.out | grep -v "#" > ../files/$2
+  cat out/obspt_RE_matrix-1.out | grep -v "#" > ../files/$3/$2
   
 
   touch objfnc.val
@@ -44,9 +44,9 @@ function dataprep {
           if [[  $l == "p"  ]]; then
             let z=z+1
             if [[ $z -lt $nproc ]] ; then
-              run_drutes $z $idd $a $b $c  &
+              run_drutes $z $idd  $1 $a $b $c   &
             else
-              run_drutes $z $idd $a $b $c 
+              run_drutes $z $idd $1 $a $b $c
             fi
           fi
         done < pars.in
@@ -68,31 +68,45 @@ function dataprep {
       done
  } 
 
-let nproc=6
+function go {
+ 
+    let nproc=6
 
-let count=0
+    let count=0
 
-let id=0
+    let id=0
 
 
 
-rm -f pars.in
-      
-while read  a b c 
-  do
-    let count=count+1
-    let id=id+1
-    echo "p"  $id $a $b $c  >> pars.in
+    rm -f pars.in
+    rm -rf files/$1
+    mkdir files/$1
+    while read  a b c 
+      do
+        let count=count+1
+        let id=id+1
+        echo "p"  $id $a $b $c  >> pars.in
 
-    if [[  $count == $nproc  ]]; then
-      dataprep
-      echo "tam"
-      let count=0 
-      rm -rf pars.in
-      echo $count $id
-    fi
-  done < inputs/X1.txt
+        if [[  $count == $nproc  ]]; then
+          dataprep $1
+          echo "tam"
+          let count=0 
+          rm -rf pars.in
+          echo $count $id
+        fi
+      done < inputs/$1
+}
   
 
+files[1]="X1.txt"
+files[2]="X2.txt"
+files[3]="X21_1.txt"
+files[4]="X21_2.txt"
+files[5]="X21_3.txt"
 
-  
+
+for item in ${files[*]}
+do
+    echo "processing file:" $item
+    go $item
+done
