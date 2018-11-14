@@ -86,7 +86,10 @@ function go {
         
         let id=id+1
         
-        if [[ id > 9984 ]]; then
+        
+        echo $id 
+        
+        if [[ id -gt 9984 ]]; then
           let count=count+1
           echo "p"  $id $a $b $c  >> pars.in
 
