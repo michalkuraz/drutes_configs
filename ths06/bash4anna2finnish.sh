@@ -70,7 +70,7 @@ function dataprep {
 
 function go {
  
-    let nproc=6
+    let nproc=16
 
     let count=0
 
@@ -79,17 +79,18 @@ function go {
 
 
     rm -f pars.in
-    rm -rf files/$1
-    mkdir files/$1
+    #rm -rf files/$1
+    #mkdir files/$1
     while read  a b c 
       do
-
+        
         let id=id+1
         
-        if [[ $id > 9984 ]]; then
-          echo "p"  $id $a $b $c  >> pars.in
+        if [[ id > 9984 ]]; then
           let count=count+1
-          if [[  $id == 10000  ]]; then
+          echo "p"  $id $a $b $c  >> pars.in
+
+          if [[  $count == $nproc  ]]; then
             dataprep $1
             echo "tam"
             let count=0 
