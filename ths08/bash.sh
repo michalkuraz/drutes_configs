@@ -14,7 +14,7 @@ function run_drutes {
   a=$2
   n=$3
   Ks=$4
-  ths="0.8"
+  ths="0.6"
   Ss="0.0"
 
   m=`echo "scale=12; 1.0-1.0/$n" | bc`

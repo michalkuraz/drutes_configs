@@ -58,11 +58,13 @@ DRU = function(){
       error3 = abs(data[i+1,5] - ReferenceCumInfl(data[i+1,1]))
     }
   }
-      
+  
+  error = errorCumi + error_der + error3
+
 #   cat("vals", errorCumi, error_der)
-  write(errorCumi, file="objfnc.val")
-  write(error_der, file="objfnc.val", append=TRUE)
-  write(error3, file="objfnc", append=TRUE)
+  write(error, file="objfnc.val")
+ # write(error_der, file="objfnc.val", append=TRUE)
+ # write(error3, file="objfnc", append=TRUE)
 
 
 }

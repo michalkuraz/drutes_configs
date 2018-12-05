@@ -80,7 +80,7 @@ function go {
 
     rm -f pars.in
     #rm -rf files/$1
-    #mkdir files/$1
+    mkdir files/$1
     while read  a b c 
       do
         
