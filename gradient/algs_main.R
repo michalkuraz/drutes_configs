@@ -23,7 +23,7 @@ alg <- 9
 
 ## Nelder-MEad simplex
 # Only set-up for Nelder-Mead, optim() function. Initial values, for nelder mead, an initial values are needed, not used for other algorithms
-ini_vals <- c(a = 0.01 , n = 2, ths = 0.4, Ks = 0.01)
+ini_vals <- c(a = 2.58e-3 , n = 2.152, ths = 0.401, Ks = 1.095)
 # alpha is the reflection coefficient
 alpha <- 1
 # beta is the contraction

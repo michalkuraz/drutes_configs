@@ -1,0 +1,28 @@
+   _____  _____  _    _ _   ______  _____ 
+  |  __ \|  __ \| |  | | | |  ____|/ ____|
+  | |  | | |__) | |  | | |_| |__  | (___  
+  | |  | |  _  /| |  | | __|  __|  \___ \ 
+  | |__| | | \ \| |__| | |_| |____ ____) | 
+  |_____/|_|  \_\\____/ \__|______|_____/ 
+  
+  
+  
+ DRUtES is initialising, reading input files
+ ---------------------------------------------------------------
+ 16hrs : 37min : 27.549s  -  2018/12/05    total number of parallel images is:                    1
+ ---------------------------------------------------------------
+ 16hrs : 37min : 27.550s  -  2018/12/05    reading input files and allocating...
+ ---------------------------------------------------------------
+ 16hrs : 37min : 27.582s  -  2018/12/05    number of nodes:                 2097 number of elements:                 3861
+ ---------------------------------------------------------------
+ 16hrs : 37min : 27.588s  -  2018/12/05    calculating elements geometrical properties...
+ ---------------------------------------------------------------
+ 16hrs : 37min : 27.590s  -  2018/12/05    analyzing mesh structure...
+ ---------------------------------------------------------------
+ 16hrs : 37min : 27.591s  -  2018/12/05    creating graph of the discretization mesh, and searching for boundary nodes...
+ ---------------------------------------------------------------
+ 16hrs : 37min : 27.629s  -  2018/12/05    DRUtES solves Richards' equation, in                    2 D, in cylindric coordinates and axysimmetric flow, in total hydraulic head form.
+ ---------------------------------------------------------------
+ 16hrs : 37min : 27.629s  -  2018/12/05    making output files for observation time
+ ---------------------------------------------------------------
+ 16hrs : 37min : 27.860s  -  2018/12/05    go 4 solving
