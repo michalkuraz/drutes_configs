@@ -9,20 +9,20 @@
   
  DRUtES is initialising, reading input files
  ---------------------------------------------------------------
- 18hrs : 03min : 05.140s  -  2018/12/05    total number of parallel images is:                    1
+ 21hrs : 47min : 04.495s  -  2018/12/07    total number of parallel images is:                    1
  ---------------------------------------------------------------
- 18hrs : 03min : 05.140s  -  2018/12/05    reading input files and allocating...
+ 21hrs : 47min : 04.495s  -  2018/12/07    reading input files and allocating...
  ---------------------------------------------------------------
- 18hrs : 03min : 05.164s  -  2018/12/05    number of nodes:                 2097 number of elements:                 3861
+ 21hrs : 47min : 04.518s  -  2018/12/07    number of nodes:                 2097 number of elements:                 3861
  ---------------------------------------------------------------
- 18hrs : 03min : 05.168s  -  2018/12/05    calculating elements geometrical properties...
+ 21hrs : 47min : 04.523s  -  2018/12/07    calculating elements geometrical properties...
  ---------------------------------------------------------------
- 18hrs : 03min : 05.170s  -  2018/12/05    analyzing mesh structure...
+ 21hrs : 47min : 04.525s  -  2018/12/07    analyzing mesh structure...
  ---------------------------------------------------------------
- 18hrs : 03min : 05.171s  -  2018/12/05    creating graph of the discretization mesh, and searching for boundary nodes...
+ 21hrs : 47min : 04.526s  -  2018/12/07    creating graph of the discretization mesh, and searching for boundary nodes...
  ---------------------------------------------------------------
- 18hrs : 03min : 05.208s  -  2018/12/05    DRUtES solves Richards' equation, in                    2 D, in cylindric coordinates and axysimmetric flow, in total hydraulic head form.
+ 21hrs : 47min : 04.562s  -  2018/12/07    DRUtES solves Richards' equation, in                    2 D, in cylindric coordinates and axysimmetric flow, in total hydraulic head form.
  ---------------------------------------------------------------
- 18hrs : 03min : 05.208s  -  2018/12/05    making output files for observation time
+ 21hrs : 47min : 04.563s  -  2018/12/07    making output files for observation time
  ---------------------------------------------------------------
- 18hrs : 03min : 05.446s  -  2018/12/05    go 4 solving
+ 21hrs : 47min : 04.787s  -  2018/12/07    go 4 solving

@@ -32,6 +32,20 @@ function run_drutes {
   
   echo "$1 $val" >> ../drutes.vals
   
+  read oldval < ../oldval
+  
+  read itcount < ../itcount
+  
+  let itcount=$itcount+1
+  
+  echo $itcount > ../itcount
+  
+  st=`echo "$val < $oldval" | bc -l`
+  
+  if [[ st -eq 1 ]]; then
+     echo $val > ../oldval
+     echo $itcount $val $a $n $ths $Ks >> ../converge
+  fi
   
 #  gnuplot < ../plot.gnuplot
 
@@ -43,7 +57,7 @@ function run_drutes {
     
 }
 
-rm -f drutes.vals       
+    
 let nproc=0
 while read l a b c d 
   do

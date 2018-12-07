@@ -33,7 +33,7 @@ gamma <- 2
 # maximum iteration
 maxit <- 1000
 #
-abstol <- 1e-12
+abstol <- 1e-5
 
 # other
 # ranges, need to be in the same order as in drut_opti.sh script, equal min and max values will be ignored
