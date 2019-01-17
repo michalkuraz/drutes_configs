@@ -1,0 +1,112 @@
+.SUFFIXES:  .h .cpp
+
+ARCH_DIR = $$HOME/cpp/archive/
+SRCDIR = pasade
+
+
+# files
+
+OBJECTS = cmlfile.o gartou.o general.o logo.o opt1.o
+SOURCES = cmlfile.cpp gartou.cpp general.cpp logo.cpp  opt1.cpp
+HEADERS = cmlfile.h gartou.h general.h logo.h solution.h function.h my_mpi.h opt1.h
+ARCHIVE = opt1-0001-`date +'%y-%m-%d'`.tgz
+
+#MO_MACRO	= -D__MULTIOBJECTIVE__
+DEBUG_MACRO	= -D__DEBUG__
+
+M_SYS_LIBS        = -lm
+
+$PAR_MACRO	= -D__PARALLEL__ -D__PAR_DEBUG__
+#PAR_MACRO	= -D__PARALLEL__
+
+#ifdef __PARALLEL__
+
+#ifndef MPI_HOME
+#MPI_HOME=/usr/local/mpi
+#$(warning variable MPI_HOME is set to default value     )
+#endif
+
+#PAR_INC		= $(PAR_MACRO) -I/usr/local/mpi/include
+#PAR_INC		= $(PAR_MACRO) -I/usr/lib/mpich/include
+#PAR_INC		= $(PAR_MACRO) -I$(MPI_HOME)/include
+#PAR_INC = $(PAR_MACRO) -I/usr/local/include
+
+#libvt-mpi.a
+#PAR_LIBS       = -L/usr/lib/ -lmpi
+#PAR_LIBS	= -L/usr/lib/mpich/lib/ -lpmpich -lmpich
+#PAR_LIBS	= -L$(MPI_HOME)/lib -lpmpich -lmpich
+#PAR_LIBS    = -L/usr/local/lib/ -lmpi
+
+#endif
+
+# CC settings
+
+#CFLAGS = -g -W -Wall
+CFLAGS = -g $(PAR_MACRO)
+#CFLAGS = -g
+CC = mpic++ $(CFLAGS) $(DEBUG_MACRO)
+#CC = g++ $(CFLAGS) $(DEBUG_MACRO)
+RM = rm -f
+MV = mv
+CP = cp
+
+AR       = ar
+AR_FLAGS = -ruc
+RANLIB   = ranlib
+
+# make all
+
+all: pasade
+
+
+pasade: main.o $(OBJECTS)
+#gartou: main.o $(OBJECTS)
+#	$(CC) -o pasade main.o $(OBJECTS) $(M_SYS_LIBS) $(PAR_LIBS) -llogo
+#	$(CC) -o gartou main.o $(OBJECTS) $(M_SYS_LIBS) -lkreslitko -llogo
+	$(CC) -o pasade main.o $(OBJECTS) $(PAR_LIBS)
+
+opt1.o: opt1.cpp opt1.h function.h
+	$(CC) $(MO_MACRO) -c opt1.cpp -o opt1.o $(PAR_INC)
+#	$(CC) $(MO_MACRO) -c opt1.cpp -o opt1.o
+
+general.o: general.cpp general.h
+	$(CC) -c general.cpp -o general.o
+
+logo.o: logo.cpp logo.h
+	$(CC) -c logo.cpp -o logo.o
+
+cmlfile.o: cmlfile.cpp cmlfile.h
+	$(CC) -c cmlfile.cpp -o cmlfile.o
+
+main.o: main.cpp function.h $(HEADERS)
+	$(CC) -c main.cpp -o main.o $(PAR_INC)
+#	$(CC) -c main.cpp -o main.o $(PAR_INC) -I$(DIR_INCLUDE)
+
+gartou.o: gartou.cpp vilog.cpp parallel.cpp function.h $(HEADERS)
+	$(CC) -c gartou.cpp -o gartou.o $(PAR_INC)
+#	$(CC) -c gartou.cpp -o gartou.o $(PAR_INC) -I$(DIR_INCLUDE)
+
+# make clean
+
+clean:
+	rm -f main.o gartou pasade $(OBJECTS) *.*~ *~
+
+# make cleanout
+
+cleanout:
+	rm -f *.out* results
+
+# make archive
+
+archiv:
+	@if [ -d $(ARCH_DIR) ] ; then \
+		make -k clean ; \
+		cd .. ; tar -czvf $(ARCHIVE) $(SRCDIR) ; \
+		echo "Moving '$(ARCHIVE)' into $(ARCH_DIR)" ; \
+		$(MV) $(ARCHIVE) $(ARCH_DIR) ; \
+	else \
+		echo "Directory '$(ARCH_DIR)' does not exist!" ; \
+	fi
+
+%.o: %.cpp $(HEADERS)
+	$(CC) -c $<

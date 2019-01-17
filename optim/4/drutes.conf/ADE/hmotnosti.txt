@@ -1,0 +1,12 @@
+Objemová hmotnost suchého vzorku;Hmotnost zůstatkové vody=maximální objemová vlhkost [%];Pórovitost;Poměr hmotnosti vody a pórovitosti;Rozdíl hmotnosti vody a pórovitosti;Číslo válečku;Label;
+[g cm-3];g=cm3;[-];[-];[-];[-];[-];
+1.238;57.01;0.533;1.070;3.7175;83;puda;
+1.237;57.68;0.533;1.081;4.3457;81;puda;
+1.238;56.12;0.533;1.053;2.8451;95;puda;
+1.238;57.07;0.533;1.071;3.8009;76;puda;
+1.231;59.69;0.536;1.114;6.1297;92;puda;
+1.242;57.76;0.527;1.095;5.0150;77*;biochar 2%;
+1.230;59.57;0.532;1.119;6.3470;94*;biochar 2%;
+1.230;61.23;0.532;1.151;8.0247;80*;biochar 2%;
+1.231;57.93;0.532;1.090;4.7713;73*;biochar 2%;
+1.235;58.41;0.530;1.102;5.4031;89*;biochar 2%;

@@ -1,0 +1,33 @@
+#navazky v gramech
+#AMO
+A				50.38
+B				50.33
+density 		1.2364
+ThetaS(swelling)57.514	
+Porosity		0.5336
+
+#BC
+A				50.54
+B				50.00
+density 		1.2236 
+ThetaS(swelling)58.98
+porosity 		0.5306
+
+
+#SOIL
+A				52.65
+B				52.69
+density 		1.2364
+ThetaS(swelling)57.514	
+Porosity		0.5336
+
+
+
+
+
+Zn 0.52 mg/g soil 
+Pb 0.007 mg/g soil
+Cd 0.001 mg/g soil
+
+
+

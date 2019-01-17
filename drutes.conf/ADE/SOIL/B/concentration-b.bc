@@ -1,0 +1,12 @@
+#Control	
+#Time variable concentration boundary (upper)
+#time [s]	#concetration [g/cm3]
+0		0
+780.00		0.0016665
+1080.00		0
+5100.00		0.0016665
+5700.00		0
+9300.00		0.0016665
+10500.00	0
+14100.00	0.0016665
+16200.00	0
