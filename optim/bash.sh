@@ -12,32 +12,55 @@ function run_drutes {
   cd $1
 
   
-  k=$2
+  ka=$2
+  kd=$3
+  cm=$4
 
-  k=`echo ${k} | sed -e 's/[eE]+*/\\*10\\^/'`
+  D=$5
+
+  ka=`echo ${ka} | sed -e 's/[eE]+*/\\*10\\^/'`
  
 
-  k=`echo "e($k)" | bc -l`
+  ka=`echo "e($ka)" | bc -l`
 
-  echo $k
+  kd=`echo ${kd} | sed -e 's/[eE]+*/\\*10\\^/'`
+  kd=`echo "e($kd)" | bc -l`
 
-  sed -e 's/!KD/'$k'/g'  drutes.conf/ADE/sorption.conf.temp > drutes.conf/ADE/sorption.conf
+  cm=`echo ${cm} | sed -e 's/[eE]+*/\\*10\\^/'`
+  cm=`echo "e($cm)" | bc -l`
+
+
+  sed -e 's/!KA/'$ka'/g' -e 's/!KD/'$kd'/g' -e 's/!CM/'$cm'/g'  drutes.conf/ADE/sorption.conf.temp > drutes.conf/ADE/sorption.conf
+
+  sed -e 's/!D/'$D'/g'  drutes.conf/ADE/contaminant.conf.temp > drutes.conf/ADE/contaminant.conf
+
   
-  bin/drutes > /dev/null
+  bin/drutes -o optim > /dev/null
   
   cat out/objfnc.val | grep -v "#" > objfnc.val
   
   read val < objfnc.val
+
+  val=`echo ${val} | sed -e 's/[eE]+*/\\*10\\^/'`
   
-  echo "$2 $val" >> ../drutes.vals
+  if (( $(echo "$val < 1.0" |bc -l) )); then
+  echo $val   
+
+    val=`echo "e($val)" | bc -l` 
+    val=`echo "1.0/(sqrt($val*$val))" | bc -l `
+
+    echo $val > objfnc.val
+  fi  
+ 
   
   cd .. 
     
 }
 
-rm -f drutes.vals       
+      
 let nproc=0
-while read l a
+
+while read l a b c d
   do
     if [[  $l == "p"  ]]; then
       let nproc=nproc+1
@@ -45,15 +68,16 @@ while read l a
   done < pars.in
   
 
+
 let z=0
-while read l a
+while read l a b c d
   do
     if [[  $l == "p"  ]]; then
       let z=z+1
       if [[ $z -lt $nproc ]] ; then
-        run_drutes $z $a  &
+        run_drutes $z $a $b $c $d  &
       else
-        run_drutes $z $a  
+        run_drutes $z $a $b $c $d
       fi
     fi
   done < pars.in

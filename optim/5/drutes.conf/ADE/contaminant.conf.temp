@@ -40,7 +40,8 @@
 #initial condition
 # value    type [cr - relative concentration, ca - absolute concentration], 
 0.0         ca 
-  
+# 0.0         ca
+# 0.0         ca     
 # cmax (supply if relative concentration used otherwise leave it blank (just a single value for all layers)
 # 1.5
 #  0.0
