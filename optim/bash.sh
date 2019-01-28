@@ -44,7 +44,7 @@ function run_drutes {
   val=`echo ${val} | sed -e 's/[eE]+*/\\*10\\^/'`
   
   if (( $(echo "$val < 1.0" |bc -l) )); then
-  echo $val   
+    
 
     val=`echo "e($val)" | bc -l` 
     val=`echo "1.0/(sqrt($val*$val))" | bc -l `
