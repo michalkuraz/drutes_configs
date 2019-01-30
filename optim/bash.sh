@@ -37,15 +37,28 @@ function run_drutes {
   
   bin/drutes -o optim > /dev/null
   
-  cat out/objfnc.val | grep -v "#" > objfnc.val
+  cat out/objfnc.val | grep -v "#" > out/objfnc.val.2
   
-  read val < objfnc.val
+  read val < out/objfnc.val.2
 
   val=`echo ${val} | sed -e 's/[eE]+*/\\*10\\^/'`
   
   val=`echo "${val}*100000" | bc -l` 
   
   echo $val > objfnc.val
+  
+  read oldval < ../oldval
+  
+  st=`echo "$val < $oldval" | bc -l`
+  
+  read itcount < ../itcount
+  
+  let itcount=$itcount+1
+    
+  if [[ st -eq 1 ]]; then
+     echo $val > ../oldval
+     echo $itcount $val $1 $2 $3 $4 $5 >> ../converge
+  fi
 
   cd .. 
     
