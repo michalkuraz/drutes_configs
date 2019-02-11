@@ -71,7 +71,7 @@ function run_drutes {
       
 let nproc=0
 
-while read l a b c d
+while read l a b c d e
   do
     if [[  $l == "p"  ]]; then
       let nproc=nproc+1
