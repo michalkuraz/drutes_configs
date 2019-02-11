@@ -17,6 +17,8 @@ function run_drutes {
   cm=$4
 
   D=$5
+  
+  ths=$6
 
   ka=`echo ${ka} | sed -e 's/[eE]+*/\\*10\\^/'`
  
@@ -33,6 +35,8 @@ function run_drutes {
   sed -e 's/!KA/'$ka'/g' -e 's/!KD/'$kd'/g' -e 's/!CM/'$cm'/g'  drutes.conf/ADE/sorption.conf.temp > drutes.conf/ADE/sorption.conf
 
   sed -e 's/!D/'$D'/g'  drutes.conf/ADE/contaminant.conf.temp > drutes.conf/ADE/contaminant.conf
+  
+  sed -e 's/!T/'$D'/g' drutes.conf/ADE/ADE.conf.temp > drutes.conf/ADE/ADE.conf
 
   
   bin/drutes -o optim > /dev/null
@@ -57,7 +61,7 @@ function run_drutes {
     
   if [[ st -eq 1 ]]; then
      echo $val > ../oldval
-     echo $itcount $val $1 $2 $3 $4 $5 >> ../converge
+     echo $itcount $val $1 $2 $3 $4 $5 $6 >> ../converge
   fi
 
   cd .. 
@@ -77,14 +81,14 @@ while read l a b c d
 
 
 let z=0
-while read l a b c d
+while read l a b c d e
   do
     if [[  $l == "p"  ]]; then
       let z=z+1
       if [[ $z -lt $nproc ]] ; then
-        run_drutes $z $a $b $c $d  &
+        run_drutes $z $a $b $c $d $e &
       else
-        run_drutes $z $a $b $c $d
+        run_drutes $z $a $b $c $d $e
       fi
     fi
   done < pars.in

@@ -23,7 +23,7 @@ opt1::opt1 ( void ) : objective_function ()
     long i;
     FILE *g ;
 
-    Dim = 4;
+    Dim = 5;
 
 #if defined ( __MULTIOBJECTIVE__ )
     Obj = 3 ;
@@ -57,7 +57,8 @@ opt1::opt1 ( void ) : objective_function ()
     Domain[3][0]=0.1;
     Domain[3][1]=3.0;
 
-    
+    Domain[4][0]=0.25;
+    Domain[4][1]=0.85;
 
    
     
