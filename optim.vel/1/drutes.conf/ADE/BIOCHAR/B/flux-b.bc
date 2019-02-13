@@ -1,0 +1,7 @@
+#biochar B
+#upper boundary - constant inflow in cm/s
+0.0026
+
+#bottom boundary - constant inflow in cm/s
+seepage face or constant ouflow in cm/s
+0.0026

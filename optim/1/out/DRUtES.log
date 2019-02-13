@@ -7,20 +7,34 @@
   
  DRUtES is initializing, reading input files
  ---------------------------------------------------------------
- 15hrs : 21min : 58.912s  -  2019/01/30    total number of parallel images is:                    1
+ 00hrs : 11min : 59.646s  -  2019/02/12    total number of parallel images is:                    1
  ---------------------------------------------------------------
- 15hrs : 21min : 58.913s  -  2019/01/30    reading input files and allocating...
+ 00hrs : 11min : 59.646s  -  2019/02/12    reading input files and allocating...
  ---------------------------------------------------------------
- 15hrs : 21min : 58.918s  -  2019/01/30    number of nodes:                   21 number of elements:                   20
+ 00hrs : 11min : 59.653s  -  2019/02/12    number of nodes:                   21 number of elements:                   20
  ---------------------------------------------------------------
- 15hrs : 21min : 58.942s  -  2019/01/30    analyzing mesh structure...
+ 00hrs : 11min : 59.696s  -  2019/02/12    analyzing mesh structure...
  ---------------------------------------------------------------
- 15hrs : 21min : 58.945s  -  2019/01/30    The file with inputs for inverse modeling is: drutes.conf/ADE/SOIL/A/control-a-obs-bottom.dat
+ 00hrs : 11min : 59.697s  -  2019/02/12    The file with inputs for inverse modeling is: drutes.conf/ADE/SOIL/A/control-a-obs-bottom.dat
  ---------------------------------------------------------------
- 15hrs : 21min : 58.947s  -  2019/01/30    DRUtES solves advection-dispersion-reaction equation in    1 D
+ 00hrs : 11min : 59.698s  -  2019/02/12    DRUtES solves advection-dispersion-reaction equation in    1 D
  ---------------------------------------------------------------
- 15hrs : 21min : 58.948s  -  2019/01/30    making output files for observation time
+ 00hrs : 11min : 59.699s  -  2019/02/12    making output files for observation time
  ---------------------------------------------------------------
- 15hrs : 21min : 58.951s  -  2019/01/30    go 4 solving
+ 00hrs : 11min : 59.730s  -  2019/02/12    go 4 solving
  ---------------------------------------------------------------
- 15hrs : 21min : 58.953s  -  2019/01/30    current simulation time:  0.10000000000000001 total iteration count:                    1
+ 00hrs : 11min : 59.733s  -  2019/02/12    current simulation time:  0.10000000000000001 total iteration count:                    1
+ ---------------------------------------------------------------
+ 00hrs : 12min : 10.725s  -  2019/02/12    making output files for observation time
+ ---------------------------------------------------------------
+ 00hrs : 12min : 10.854s  -  2019/02/12    DRUtES will allocate:   152.20800000000000 kB  of RAM for objective function computation.
+ ---------------------------------------------------------------
+ 00hrs : 12min : 11.091s  -  2019/02/12    # real elapsed CPU time =   4.3600000000000003 s
+ ---------------------------------------------------------------
+ 00hrs : 12min : 11.091s  -  2019/02/12    minimal adjusted time step was  0.10000000000000001
+ ---------------------------------------------------------------
+ 00hrs : 12min : 11.091s  -  2019/02/12    F I N I S H E D !!!!!
+ ---------------------------------------------------------------
+ 00hrs : 12min : 11.092s  -  2019/02/12    Peak RAM  consumption on image                    1 was:                17812 kB
+ ---------------------------------------------------------------
+ 00hrs : 12min : 11.092s  -  2019/02/12    Peak SWAP consumption on image                    1 was:                    0 kB

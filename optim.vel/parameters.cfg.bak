@@ -1,0 +1,29 @@
+#----- MAIN -----
+
+MainCallsLimit       20
+
+#----- OSMINA -----
+
+OsminaPrecision          0.005   
+UniaxialNsteps           400
+UniaxialRtolv            0.01 
+HydroNsteps              10
+HydroRtolv               0.001 
+TriaxNsteps              60
+TriaxRtolv               0.001 
+
+#----- TEST -----
+
+TestPrecision          0.001   
+
+#----- SADE -----
+
+SadePoolRate              0
+SadeSelectedSize          11 
+SadePoolSize              11
+SadeRadioactivity         0.2 
+SadeLocalRadioactivity    0.2 
+SadeGradient              0 
+SadeCrossRate             0.5 
+SadeMutationRate          0.5 
+SadeMutagenRate          2000. 
