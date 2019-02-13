@@ -7,34 +7,34 @@
   
  DRUtES is initializing, reading input files
  ---------------------------------------------------------------
- 16hrs : 21min : 17.965s  -  2019/02/13    total number of parallel images is:                    1
+ 16hrs : 35min : 17.217s  -  2019/02/13    total number of parallel images is:                    1
  ---------------------------------------------------------------
- 16hrs : 21min : 17.966s  -  2019/02/13    reading input files and allocating...
+ 16hrs : 35min : 17.218s  -  2019/02/13    reading input files and allocating...
  ---------------------------------------------------------------
- 16hrs : 21min : 17.967s  -  2019/02/13    number of nodes:                  201 number of elements:                  200
+ 16hrs : 35min : 17.220s  -  2019/02/13    number of nodes:                  201 number of elements:                  200
  ---------------------------------------------------------------
- 16hrs : 21min : 17.970s  -  2019/02/13    analyzing mesh structure...
+ 16hrs : 35min : 17.221s  -  2019/02/13    analyzing mesh structure...
  ---------------------------------------------------------------
- 16hrs : 21min : 17.971s  -  2019/02/13    The file with inputs for inverse modeling is: drutes.conf/ADE/SOIL/A/control-a-obs-bottom.dat
+ 16hrs : 35min : 17.223s  -  2019/02/13    The file with inputs for inverse modeling is: drutes.conf/ADE/SOIL/A/control-a-obs-bottom.dat
  ---------------------------------------------------------------
- 16hrs : 21min : 17.972s  -  2019/02/13    DRUtES solves advection-dispersion-reaction equation in    1 D
+ 16hrs : 35min : 17.225s  -  2019/02/13    DRUtES solves advection-dispersion-reaction equation in    1 D
  ---------------------------------------------------------------
- 16hrs : 21min : 17.972s  -  2019/02/13    making output files for observation time
+ 16hrs : 35min : 17.225s  -  2019/02/13    making output files for observation time
  ---------------------------------------------------------------
- 16hrs : 21min : 17.996s  -  2019/02/13    go 4 solving
+ 16hrs : 35min : 17.246s  -  2019/02/13    go 4 solving
  ---------------------------------------------------------------
- 16hrs : 21min : 17.998s  -  2019/02/13    current simulation time:  0.10000000000000001 total iteration count:                    1
+ 16hrs : 35min : 17.248s  -  2019/02/13    current simulation time:  0.10000000000000001 total iteration count:                    1
  ---------------------------------------------------------------
- 16hrs : 23min : 33.311s  -  2019/02/13    making output files for observation time
+ 16hrs : 36min : 02.020s  -  2019/02/13    making output files for observation time
  ---------------------------------------------------------------
- 16hrs : 23min : 33.782s  -  2019/02/13    DRUtES will allocate:   1.2129760000000001 MB  of RAM for objective function computation.
+ 16hrs : 36min : 02.179s  -  2019/02/13    DRUtES will allocate:   404.63999999999999 kB  of RAM for objective function computation.
  ---------------------------------------------------------------
- 16hrs : 23min : 34.828s  -  2019/02/13    # real elapsed CPU time =   1.7288666666666666 min
+ 16hrs : 36min : 02.524s  -  2019/02/13    # real elapsed CPU time =   34.519999999999996 s
  ---------------------------------------------------------------
- 16hrs : 23min : 34.833s  -  2019/02/13    minimal adjusted time step was  0.10000000000000001
+ 16hrs : 36min : 02.526s  -  2019/02/13    minimal adjusted time step was  0.10000000000000001
  ---------------------------------------------------------------
- 16hrs : 23min : 34.834s  -  2019/02/13    F I N I S H E D !!!!!
+ 16hrs : 36min : 02.527s  -  2019/02/13    F I N I S H E D !!!!!
  ---------------------------------------------------------------
- 16hrs : 23min : 34.835s  -  2019/02/13    Peak RAM  consumption on image                    1 was:                17240 kB
+ 16hrs : 36min : 02.529s  -  2019/02/13    Peak RAM  consumption on image                    1 was:                16448 kB
  ---------------------------------------------------------------
- 16hrs : 23min : 34.835s  -  2019/02/13    Peak SWAP consumption on image                    1 was:                    0 kB
+ 16hrs : 36min : 02.529s  -  2019/02/13    Peak SWAP consumption on image                    1 was:                    0 kB
