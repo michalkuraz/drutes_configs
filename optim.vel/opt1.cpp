@@ -46,7 +46,7 @@ opt1::opt1 ( void ) : objective_function ()
 */
 
     Domain[0][0]=-0.1;
-    Domain[0][1]=-0.001;
+    Domain[0][1]=-0.0001;
 
     Domain[1][0]=0.005;
     Domain[1][1]=2.0;
