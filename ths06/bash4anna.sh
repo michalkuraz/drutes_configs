@@ -70,7 +70,7 @@ function dataprep {
 
 function go {
  
-    let nproc=6
+    let nproc=25
 
     let count=0
 
@@ -98,11 +98,8 @@ function go {
 }
   
 
-files[1]="X1.txt"
-files[2]="X2.txt"
-files[3]="X21_1.txt"
-files[4]="X21_2.txt"
-files[5]="X21_3.txt"
+files[1]="X12Dgrid.txt"
+files[2]="X2009.txt"
 
 
 for item in ${files[*]}
