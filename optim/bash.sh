@@ -14,11 +14,11 @@ function run_drutes {
   
   ka=$2
   kd=$3
-  cm=$4
+
 
   D=$5
   
-  ths=$6
+  q=$4
 
   ka=`echo ${ka} | sed -e 's/[eE]+*/\\*10\\^/'`
  
@@ -28,15 +28,13 @@ function run_drutes {
   kd=`echo ${kd} | sed -e 's/[eE]+*/\\*10\\^/'`
   kd=`echo "e($kd)" | bc -l`
 
-  cm=`echo ${cm} | sed -e 's/[eE]+*/\\*10\\^/'`
-  cm=`echo "e($cm)" | bc -l`
 
 
-  sed -e 's/!KA/'$ka'/g' -e 's/!KD/'$kd'/g' -e 's/!CM/'$cm'/g'  drutes.conf/ADE/sorption.conf.temp > drutes.conf/ADE/sorption.conf
+  sed -e 's/!KA/'$ka'/g' -e 's/!KD/'$kd'/g'   drutes.conf/ADE/sorption.conf.temp > drutes.conf/ADE/sorption.conf
 
   sed -e 's/!D/'$D'/g'  drutes.conf/ADE/contaminant.conf.temp > drutes.conf/ADE/contaminant.conf
   
-  sed -e 's/!T/'$D'/g' drutes.conf/ADE/ADE.conf.temp > drutes.conf/ADE/ADE.conf
+  sed -e 's/!q/'$q'/g' drutes.conf/ADE/ADE.conf.temp > drutes.conf/ADE/ADE.conf
 
   
   bin/drutes -o optim > /dev/null
@@ -61,7 +59,7 @@ function run_drutes {
     
   if [[ st -eq 1 ]]; then
      echo $val > ../oldval
-     echo $itcount $val $1 $2 $3 $4 $5 $6 >> ../converge
+     echo $itcount $val $1 $2 $3 $4 $5 >> ../converge
   fi
 
   cd .. 
@@ -71,7 +69,7 @@ function run_drutes {
       
 let nproc=0
 
-while read l a b c d e
+while read l a b c d 
   do
     if [[  $l == "p"  ]]; then
       let nproc=nproc+1
@@ -81,14 +79,14 @@ while read l a b c d e
 
 
 let z=0
-while read l a b c d e
+while read l a b c d 
   do
     if [[  $l == "p"  ]]; then
       let z=z+1
       if [[ $z -lt $nproc ]] ; then
-        run_drutes $z $a $b $c $d $e &
+        run_drutes $z $a $b $c $d  &
       else
-        run_drutes $z $a $b $c $d $e
+        run_drutes $z $a $b $c $d
       fi
     fi
   done < pars.in
