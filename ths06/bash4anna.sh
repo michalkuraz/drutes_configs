@@ -15,7 +15,7 @@ function run_drutes {
   a=$4
   n=$5
   Ks=$6
-  ths="0.6"
+  ths="0.8"
   Ss="0.0"
 
   m=`echo "scale=12; 1.0-1.0/$n" | bc`
@@ -70,7 +70,7 @@ function dataprep {
 
 function go {
  
-    let nproc=25
+    let nproc=1
 
     let count=0
 
@@ -80,6 +80,7 @@ function go {
 
     rm -f pars.in
     rm -rf files/$1
+    #mkdir files
     mkdir files/$1
     while read  a b c 
       do
@@ -98,8 +99,8 @@ function go {
 }
   
 
-files[1]="X12Dgrid.txt"
-files[2]="X2009.txt"
+#files[1]="X12Dgrid.txt"
+files[1]="X2009.txt"
 
 
 for item in ${files[*]}
