@@ -102,6 +102,12 @@ gartou::gartou ( void )
     vilog=1;
     save=0;
     load=0;
+    
+    // cleaning extremes file
+    FILE *g ;
+    g = fopen( "extremes.sav", "wt" );
+    fclose( g );
+ 
 }
 
 gartou::~gartou ( void )
@@ -517,6 +523,20 @@ long gartou::new_ceraf ( void )
     //CH[i]=new_point();
     new_point( S[i].CH ) ;
       }
+    
+    
+    // continuous saving of extremes
+    FILE *f;
+    f = fopen ( "extremes.sav", "at" );
+
+    fprintf( f, "%ld ", n_extreme) ;
+    for ( long k=0; k<F->Dim; k++ ){
+      fprintf ( f, " %8.5g", btg.CH[k] ) ;
+    }     
+    fprintf( f, "\n" );
+
+    fclose( f );
+    
 
     return 0;
 }
