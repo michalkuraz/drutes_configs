@@ -70,7 +70,7 @@ function dataprep {
 
 function go {
  
-    let nproc=1
+    let nproc=32
 
     let count=0
 
