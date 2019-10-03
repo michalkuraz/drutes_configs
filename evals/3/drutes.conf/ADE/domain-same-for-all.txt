@@ -1,9 +1,0 @@
-#Domain description
-#LENGHT cm
-10
-
-#diameter in cm
-2.5
-
-#surface cm2
-19.635
