@@ -14,6 +14,8 @@ function run_drutes {
   A=$3
   N=$4
   
+  tisk=$5
+  
 
  
    
@@ -37,7 +39,12 @@ function run_drutes {
   
   echo $val > objfnc.val
   
+  
   echo $S $A $N $val >> ../totvals
+  
+  if [[ tisk == "t" ]] ; then
+    gnuplot < ../plot.gnuplot
+  fi
   
   cd ..
     
@@ -50,7 +57,7 @@ rm -f drutes.vals
 #count the number of processes       
 let nproc=0
 while read l a b c ; do
-    if [[  $l == "p"  ]]; then
+    if [[  $l == "p"  ]]  || [[ $l == "t" ]] ; then
       let nproc=nproc+1
     fi
   done < pars.in
@@ -67,6 +74,12 @@ while read l a b c
         run_drutes $z $a $b  $c 
       fi
     fi
+     if [[  $l == "t"  ]]; then
+       if [[ $z -lt $nproc ]] ; then
+        run_drutes $z $a $b $c $l  &
+      else
+        run_drutes $z $a $b  $c $l
+      fi
   done < pars.in
  
 
