@@ -61,6 +61,7 @@ while read l a b c ; do
       let nproc=nproc+1
     fi
   done < pars.in
+  echo $nproc
   
 #execute drutes function in parallel
 let z=0
@@ -74,12 +75,13 @@ while read l a b c
         run_drutes $z $a $b  $c 
       fi
     fi
-     if [[  $l == "t"  ]]; then
-       if [[ $z -lt $nproc ]] ; then
+    if [[  $l == "t"  ]]; then
+      if [[ $z -lt $nproc ]] ; then
         run_drutes $z $a $b $c $l  &
       else
         run_drutes $z $a $b  $c $l
       fi
+    fi
   done < pars.in
  
 
