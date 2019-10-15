@@ -68,7 +68,7 @@ let z=0
 while read l a b c 
   do
     if [[  $l == "p"  ]]; then
-      let z=z+1
+      let z=$z+1
       if [[ $z -lt $nproc ]] ; then
         run_drutes $z $a $b $c   &
       else
@@ -76,6 +76,7 @@ while read l a b c
       fi
     fi
     if [[  $l == "t"  ]]; then
+      let z=$z+1
       if [[ $z -lt $nproc ]] ; then
         run_drutes $z $a $b $c $l  &
       else

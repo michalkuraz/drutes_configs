@@ -2,17 +2,17 @@
  
  set xlabel "time [s]"
  
- set ylabel "infiltration rate [m/s]" 
+ set ylabel "surface runoff [m^3.s^{-1}.m^{-1}]" 
  
  set grid
 
- set terminal postscript colour "Helvetica" 20 lw 2
+ set terminal postscript enhanced colour "Helvetica" 20 lw 2
 
- set key bottom right
+ set key top right
  
  set output "plot.eps"
  
- plot "obspt_runoff-1.out" u 1:3 w l lc rgb "blue" lw 2 title "model data" , "drutes.conf/kinwave/inputs.dat" u 1:2 title "experimental data"
+ plot "out/obspt_runoff-1.out" u 1:3 w l lc rgb "blue" lw 2 title "model data" , "drutes.conf/kinwave/inputs.dat" u 1:2 title "experimental data"
 
 set terminal png
 
