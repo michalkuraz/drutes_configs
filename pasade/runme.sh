@@ -21,9 +21,14 @@ for i in `ls inputs/go | grep dat` ; do
   rm -rf results
   
   rm -rf totvals
-  
+
+  echo "running SADE optim for set $i"  
+
   ./pasade 1>all_log.out 2>&1
   
+
+  echo "SADE has finished"
+
   rm -rf pars.in
   
   let count=0
@@ -38,6 +43,6 @@ for i in `ls inputs/go | grep dat` ; do
     mkdir bin
   fi
   
-  tar -czf $(seq $count) totvals results outputs/$i.out.tgz 
+  tar -czf $(seq $count) totvals extremes.sav outputs/$i.out.tgz 
 
 done
