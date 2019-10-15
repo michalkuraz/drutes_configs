@@ -57,8 +57,6 @@ for i in `ls inputs/go | grep dat` ; do
   fi
   
   echo "packing all outputs..."
-  tar -czf outputs/$i.out.tgz $(seq $count) totvals extremes.sav
-
-  exit 1
+  tar -czf outputs/$i.out.tgz $(seq $count) totvals extremes.sav results
  
 done
