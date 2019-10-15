@@ -34,6 +34,10 @@ for i in `ls inputs/go | grep dat` ; do
   
   ./bash.sh
   
-  tar -czf $(seq $count) outputs/$i.out.tgz 
+  if [ -d outputs ] ; then 
+    mkdir bin
+  fi
+  
+  tar -czf $(seq $count) totvals results outputs/$i.out.tgz 
 
 done

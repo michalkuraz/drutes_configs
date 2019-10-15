@@ -42,7 +42,7 @@ function run_drutes {
   
   echo $S $A $N $val >> ../totvals
   
-  if [[ tisk == "t" ]] ; then
+  if [[ $tisk == "t" ]] ; then
     gnuplot < ../plot.gnuplot
   fi
   
@@ -57,11 +57,11 @@ rm -f drutes.vals
 #count the number of processes       
 let nproc=0
 while read l a b c ; do
-    if [[  $l == "p"  ]]  || [[ $l == "t" ]] ; then
-      let nproc=nproc+1
-    fi
-  done < pars.in
-  echo $nproc
+  if [[  $l == "p"  ]]  || [[ $l == "t" ]] ; then
+    let nproc=nproc+1
+  fi
+done < pars.in
+
   
 #execute drutes function in parallel
 let z=0
