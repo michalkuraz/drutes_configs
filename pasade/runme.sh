@@ -19,9 +19,11 @@ for i in `ls inputs/go | grep dat` ; do
   sed -e 's/!R/'$rain'/g' drutemp/drutes.conf/kinwave/rain.init > drutemp/drutes.conf/kinwave/rain.in
   
   rm -rf results
+
   rm -rf extremes.sav 
 
   rm -rf totvals
+
 
   echo "running SADE optim for set $i"  
 
@@ -31,6 +33,8 @@ for i in `ls inputs/go | grep dat` ; do
   echo "SADE has finished"
 
   rm -rf pars.in
+
+  rm -rf counter
  
   if [  -s extremes.sav ] ; then
 
@@ -39,13 +43,18 @@ for i in `ls inputs/go | grep dat` ; do
       echo $count > counter
     done < extremes.sav
 
-  else
-    read null1 null2 null3 null4 S A N < results
-    echo "t" $S $A $N  > pars.in
-    echo "1" > counter
   fi
 
-  read count < counter
+  read null1 null2 null3 null4 S A N < results
+  echo "t" $S $A $N  >> pars.in
+
+  if [ -f counter ]; then
+    read count < counter
+    let count=$count+1
+  else
+    let count=1
+  fi
+
 
   echo "number of extremes was: $count"
 
