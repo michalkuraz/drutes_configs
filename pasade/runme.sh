@@ -5,16 +5,16 @@ for i in `ls inputs/go | grep dat` ; do
   let j=$j+1
   cp inputs/go/$i drutemp/drutes.conf/kinwave/inputs.dat
   echo "processing datafiles $j"
-  let setrain=0
+
   while read ch val ; do
-    if [[  $setrain == 0  ]]; then
-      let setrain=1
+    if [[  $ch == "i"  ]]; then
       rain=$val
-    else
+    fi
+    if [[ $ch == "s" ]] ; then
       slope=$val
     fi
   done < inputs/go/$j.in
-  
+
   sed -e 's/!tan/'$slope'/g' drutemp/drutes.conf/kinwave/kinwave.conf.init > drutemp/drutes.conf/kinwave/kinwave.conf.temp
   sed -e 's/!R/'$rain'/g' drutemp/drutes.conf/kinwave/rain.init > drutemp/drutes.conf/kinwave/rain.in
   
