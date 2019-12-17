@@ -1,7 +1,7 @@
 #!/bin/bash
 
 let j=0
-for i in `ls inputs/go | grep dat` ; do
+for i in `ls inputs/go | grep -v .in` ; do
   let j=$j+1
   cp inputs/go/$i drutemp/drutes.conf/kinwave/inputs.dat
   echo "processing datafiles $i"
