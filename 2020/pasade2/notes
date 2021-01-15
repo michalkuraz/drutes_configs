@@ -1,0 +1,3 @@
+
+ssh perun15 "cd /store/miguel/s2d/results29/ ; ./pasade > log.1105 2>&1 &" &
+
