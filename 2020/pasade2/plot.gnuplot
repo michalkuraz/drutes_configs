@@ -12,7 +12,7 @@
  
  set output "plot.eps"
  
- plot "out/obspt_runoff-1.out" u 1:3 w l lc rgb "blue" lw 2 title "model data" , "drutes.conf/kinwave/inputs.dat" u 1:2 title "experimental data"
+ plot "out/obspt_runoff-1.out" u 1:3 w l lc rgb "blue" lw 2 title "model data" , "drutes.conf/inverse_modeling/data-water2" u 1:2 title "experimental data"
 
 set terminal png
 
