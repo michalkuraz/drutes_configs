@@ -3,8 +3,8 @@ nohup: ignoring input
  SADE algorithm is used: 
 
  pool_rate: 6 
- SelectedSize: 24 
- PoolSize: 48 
+ SelectedSize: 12 
+ PoolSize: 24 
  radioactivity: 0.200000 
  local_radioactivity: 0.200000 
  gradient: 0 
@@ -12,6 +12,13 @@ nohup: ignoring input
  mutation_rate: 0.500000 
  mutagen_rate: 2000.000000 
 
+ ++        4 OBJs:  -774.85 TMP:  -774.85 
+   7.7156    1.729 ++       43 OBJs:  -774.53 TMP:  -774.53 
+   7.7122   1.7273Terminated
+cat: out/objfnc.val: No such file or directory
+(standard_in) 1: syntax error
+ ++       50 OBJs:  -772.58 TMP:  -772.58 
+      3.3  0.68002Terminated
 Terminated
 Terminated
 Terminated
@@ -20,48 +27,21 @@ Terminated
 Terminated
 Terminated
 Terminated
-Terminated
-Terminated
-Terminated
-Terminated
-Terminated
-Terminated
-Terminated
-Terminated
-Terminated
-Terminated
-cat: cat: out/objfnc.valTerminated
-out/objfnc.valTerminated
-: No such file or directory
-: No such file or directory
 Terminated
 cat: out/objfnc.val: No such file or directory
 cat: out/objfnc.val: No such file or directory
-cat: out/objfnc.valTerminated
+Terminated
+Terminated
+cat: out/objfnc.val: No such file or directory
+cat: out/objfnc.val: No such file or directory
 cat: out/objfnc.valcat: out/objfnc.val: No such file or directory
 : No such file or directory
 cat: out/objfnc.val: No such file or directory
-Terminated
-: No such file or directory
 cat: out/objfnc.val: No such file or directory
 cat: out/objfnc.val: No such file or directory
 cat: out/objfnc.val: No such file or directory
 cat: out/objfnc.val: No such file or directory
 cat: out/objfnc.val: No such file or directory
-cat: out/objfnc.val: No such file or directory
-Terminated
-cat: out/objfnc.val: No such file or directory
-cat: out/objfnc.val: No such file or directory
-cat: out/objfnc.val: No such file or directory
-cat: cat: out/objfnc.valcat: out/objfnc.val: No such file or directory
-: No such file or directory
-cat: out/objfnc.val: No such file or directory
-out/objfnc.val: No such file or directory
-cat: out/objfnc.val: No such file or directory
-(standard_in) 1: syntax error
-cat: out/objfnc.val: No such file or directory
-(standard_in) 1: cat: syntax errorout/objfnc.val
-: No such file or directory
 (standard_in) 1: syntax error
 (standard_in) 1: syntax error
 (standard_in) 1: syntax error
@@ -69,16 +49,6 @@ cat: out/objfnc.val: No such file or directory
 (standard_in) 1: syntax error
 (standard_in) 1: syntax error
 (standard_in) 1: syntax error
-(standard_in) 1: syntax error
-(standard_in) 1: syntax error
-(standard_in) 1: syntax error
-(standard_in) 1: syntax error
-(standard_in) 1: syntax error
-(standard_in) 1: syntax error
-(standard_in) 1: syntax error
-(standard_in) 1: syntax error
-(standard_in) 1: (standard_in) 1: syntax errorsyntax error
-
 (standard_in) 1: syntax error
 (standard_in) 1: syntax error
 (standard_in) 1: syntax error
