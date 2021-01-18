@@ -45,17 +45,17 @@ opt1::opt1 ( void ) : objective_function ()
   p5 \in ( 0.000, 0.10 )
 */
 
-    Domain[0][0]=1e-6;
-    Domain[0][1]=1e-2;
+    Domain[0][0]=1e-16;
+    Domain[0][1]=1e-1;
     
-    Domain[1][0]=1e-6;
+    Domain[1][0]=1e-16;
     Domain[1][1]=0.8;
     
-    Domain[2][0] = 1e-7;
+    Domain[2][0] = 1e-16;
     Domain[2][1] = 0.8;
 
-    Domain[3][0] = 1e-5;
-    Domain[3][1] = 1e-15;
+    Domain[3][0] = 1e-20;
+    Domain[3][1] = 1e-5;
  
     
     //optimum = new double[Obj] ;
