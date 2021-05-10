@@ -51,8 +51,8 @@ opt1::opt1 ( void ) : objective_function ()
     Domain[1][0]=1e-4;
     Domain[1][1]=100.0;
 
-    Domain[2][0] = -5.0;
-    Domain[2][1] = 5.0;
+    Domain[2][0] = -50.0;
+    Domain[2][1] = 0.0;
     
  
     
