@@ -1,0 +1,34 @@
+#include "function.h"
+
+const long maxstring = 32 ; 
+
+#if defined ( __PARALLEL__ )
+#include "my_mpi.h"
+#endif
+
+class opt1 : public objective_function
+{
+    public:
+#if defined ( __PARALLEL__ )
+        opt1 ( my_mpi *oM );
+#else
+        opt1 ( void );
+#endif
+
+        ~opt1 ( void );
+	void value ( solution& S ) ;
+	void evaluate ( solution* S, long SelectedSize ) ;
+    private:
+	void run_oofem ( solution& S ) ;
+	void run_bash ( void ) ;
+
+    private:
+	long idx ;
+
+
+#if defined ( __PARALLEL__ )
+	my_mpi *M ;
+#endif
+
+};
+

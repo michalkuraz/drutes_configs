@@ -1,0 +1,171 @@
+nohup: ignoring input
+
+ SADE algorithm is used: 
+
+ pool_rate: 6 
+ SelectedSize: 18 
+ PoolSize: 36 
+ radioactivity: 0.200000 
+ local_radioactivity: 0.200000 
+ gradient: 0 
+ cross_rate: 0.500000 
+ mutation_rate: 0.500000 
+ mutagen_rate: 2000.000000 
+
+sed: can't read s/!LF/1.99891/g: No such file or directory
+sed: can't read s/!LF/-4.9613/g: No such file or directory
+sed: can't read s/!LF/-4.54006/g: No such file or directory
+sed: can't read s/!LF/0.282919/g: No such file or directory
+sed: can't read s/!LF/-3.67478/g: No such file or directory
+sed: can't read s/!LF/2.14858/g: No such file or directory
+sed: can't read s/!LF/0.927934/g: No such file or directory
+sed: can't read s/!LF/-1.53404/g: No such file or directory
+sed: can't read s/!LF/-2.5363/g: No such file or directory
+sed: can't read s/!LF/1.18118/g: No such file or directory
+sed: can't read s/!LF/-3.47703/g: No such file or directory
+sed: can't read s/!LF/-2.11816/g: No such file or directory
+sed: can't read s/!LF/-4.74364/g: No such file or directory
+sed: can't read s/!LF/-0.974997/g: No such file or directory
+sed: can't read s/!LF/-3.68472/g: No such file or directory
+sed: can't read s/!LF/-2.4638/g: No such file or directory
+sed: can't read s/!LF/0.026387/g: No such file or directory
+sed: can't read s/!LF/-1.3171/g: No such file or directory
+sed: can't read s/!LF/-2.99261/g: No such file or directory
+sed: can't read s/!LF/-2.51761/g: No such file or directory
+sed: can't read s/!LF/-3.18039/g: No such file or directory
+sed: can't read s/!LF/-0.00724654/g: No such file or directory
+sed: can't read s/!LF/-4.0777/g: No such file or directory
+sed: can't read s/!LF/-0.298711/g: No such file or directory
+sed: can't read s/!LF/-2.3753/g: No such file or directory
+sed: can't read s/!LF/-4.92246/g: No such file or directory
+sed: can't read s/!LF/3.33903/g: No such file or directory
+sed: can't read s/!LF/3.9617/g: No such file or directory
+sed: can't read s/!LF/3.28709/g: No such file or directory
+sed: can't read s/!LF/-4.58854/g: No such file or directory
+sed: can't read s/!LF/-1.94306/g: No such file or directory
+sed: can't read s/!LF/1.42763/g: No such file or directory
+sed: can't read s/!LF/-1.24036/g: No such file or directory
+sed: can't read s/!LF/-2.27299/g: No such file or directory
+sed: can't read s/!LF/-1.75963/g: No such file or directory
+sed: can't read s/!LF/3.24209/g: No such file or directory
+ ++       19 OBJs:       -0 TMP:       -0 
+   52.455    8.051  -1.2404sed: can't read s/!LF/-1.67986/g: No such file or directory
+sed: can't read s/!LF/-0.97111/g: No such file or directory
+sed: can't read s/!LF/0.92303/g: No such file or directory
+sed: can't read s/!LF/-2.11429/g: No such file or directory
+sed: can't read s/!LF/0.84773/g: No such file or directory
+sed: can't read s/!LF/-4.07996/g: No such file or directory
+sed: can't read s/!LF/-0.0420807/g: No such file or directory
+sed: can't read s/!LF/-4.32227/g: No such file or directory
+sed: can't read s/!LF/3.43136/g: No such file or directory
+sed: can't read s/!LF/4.11821/g: No such file or directory
+sed: can't read s/!LF/-3.48241/g: No such file or directory
+sed: can't read s/!LF/-0.152028/g: No such file or directory
+sed: can't read s/!LF/-5/g: No such file or directory
+sed: can't read s/!LF/-2.1105/g: No such file or directory
+sed: can't read s/!LF/-4.62212/g: No such file or directory
+sed: can't read s/!LF/-3.18935/g: No such file or directory
+sed: can't read s/!LF/4.68442/g: No such file or directory
+sed: can't read s/!LF/-3.84128/g: No such file or directory
+sed: can't read s/!LF/-3.03392/g: No such file or directory
+sed: can't read s/!LF/4.68743/g: No such file or directory
+sed: can't read s/!LF/-4.92611/g: No such file or directory
+sed: can't read s/!LF/-1.98969/g: No such file or directory
+sed: can't read s/!LF/0.924458/g: No such file or directory
+sed: can't read s/!LF/-2.11708/g: No such file or directory
+sed: can't read s/!LF/4.68264/g: No such file or directory
+sed: can't read s/!LF/0.958023/g: No such file or directory
+sed: can't read s/!LF/2.15645/g: No such file or directory
+sed: can't read s/!LF/2.32117/g: No such file or directory
+sed: can't read s/!LF/-0.157989/g: No such file or directory
+sed: can't read s/!LF/-3.83707/g: No such file or directory
+sed: can't read s/!LF/0.844363/g: No such file or directory
+sed: can't read s/!LF/-0.879649/g: No such file or directory
+sed: can't read s/!LF/-1.06043/g: No such file or directory
+sed: can't read s/!LF/-1.75879/g: No such file or directory
+sed: can't read s/!LF/-1.60947/g: No such file or directory
+sed: can't read s/!LF/-2.27021/g: No such file or directory
+@@@ ID 1 : -358.341291 for     20.1623    46.1266    1.18118
+@@@ ID 2 : -199.772798 for     85.8612    45.3201   -4.74364
+@@@ ID 3 : -362.106521 for     13.2738    35.6507    -4.9613
+@@@ ID 4 : -339.663528 for      60.792    94.4096    2.14858
+@@@ ID 5 : -283.111521 for     2.82987    94.1588   0.026387
+@@@ ID 6 : -301.826040 for     93.8992    95.8186   -3.47703
+@@@ ID 7 : -4.934023 for     48.6407   0.725132    -1.3171
+@@@ ID 8 : -273.419892 for     33.3934    27.4672    1.99891
+@@@ ID 9 : -358.545235 for     36.8678    84.7672   -3.67478
+@@@ ID 10 : -101.466304 for      48.573    12.3312   -3.68472
+@@@ ID 11 : -257.227466 for     43.8956    32.4934   0.927934
+@@@ ID 12 : -363.935070 for     5.70737    18.3546   -4.54006
+@@@ ID 13 : -363.315893 for     8.27097    31.6283  -0.974997
+@@@ ID 14 : -329.016382 for     8.65802    92.4202   -1.53404
+@@@ ID 15 : -317.970415 for     80.1438      95.25   -2.11816
+@@@ ID 16 : -363.335806 for     30.4077    89.1492    -2.5363
+@@@ ID 17 : -274.413330 for     45.6374    37.7899    -2.4638
+@@@ ID 18 : -280.387406 for     82.4664    71.1832   0.282919
+@@@ ID 19 : -0.000000 for     52.4555    8.05101   -1.24036
+@@@ ID 20 : -280.145145 for     65.7077     56.624 -0.00724654
+@@@ ID 21 : -3.341163 for     78.8605   0.519527    3.24209
+@@@ ID 22 : -65.741788 for     38.1399     6.2268   -4.92246
+@@@ ID 23 : -133.761046 for     42.7393    14.4977   -1.75963
+@@@ ID 24 : -111.117251 for     82.9893    23.1556   -2.51761
+@@@ ID 25 : -75.225201 for      17.649    3.29936   -2.99261
+@@@ ID 26 : -253.961318 for     46.4674    33.7069    -4.0777
+@@@ ID 27 : -311.651458 for     71.1044    79.3443  -0.298711
+@@@ ID 28 : -233.189705 for     96.4664    61.8106   -3.18039
+@@@ ID 29 : -115.067628 for     49.2956    14.2661    -2.3753
+@@@ ID 30 : -289.084212 for      86.892    79.9737    3.28709
+@@@ ID 31 : -341.496675 for     36.8195    58.8342    3.33903
+@@@ ID 32 : -358.471689 for     19.2404     96.974     3.9617
+@@@ ID 33 : -353.072408 for     20.0158    39.7132   -4.58854
+@@@ ID 34 : -167.739610 for     52.4195    22.7025   -2.27299
+@@@ ID 35 : -198.017358 for     77.2433    40.3514   -1.94306
+@@@ ID 36 : -284.937899 for     97.3172    86.8186    1.42763
+ ++       19 OBJs:        -0 TMP:       -0X =     52.455    8.051  -1.2404 
+@@@ ID 37 : -196.943289 for     84.6476     43.939   -4.32227
+@@@ ID 38 : -359.839261 for     11.6633    55.4837    3.43136
+@@@ ID 39 : -359.316565 for     36.9428    87.2328    0.84773
+@@@ ID 40 : -317.731876 for     80.0883    94.9488    -2.1105
+@@@ ID 41 : -282.438817 for     32.1876    28.2068   -3.18935
+@@@ ID 42 : -253.891374 for     46.4855    33.7055   -4.07996
+@@@ ID 43 : -363.289998 for     8.24718     31.627   -0.97111
+@@@ ID 44 : -257.027537 for     43.8978    32.4545    0.92303
+@@@ ID 45 : -317.977971 for     80.1769    95.2968   -2.11429
+@@@ ID 46 : -222.625061 for     61.8558    37.2826   -4.62212
+@@@ ID 47 : -89.092014 for     98.4852    21.8685   -1.67986
+@@@ ID 48 : -173.033472 for     88.8373    39.8179   -3.84128
+@@@ ID 49 : -245.110612 for     41.6402    28.6271         -5
+@@@ ID 50 : -10.716606 for     96.2637    2.89535    4.11821
+@@@ ID 51 : -355.865024 for     47.1201        100    4.68442
+@@@ ID 52 : -286.244797 for      65.901    59.3732 -0.0420807
+@@@ ID 53 : -63.539695 for     62.2861    9.82877   -3.48241
+@@@ ID 54 : -319.131721 for     66.5248    80.0401  -0.152028
+fc=54   BTG=-10.71660615   BSF=-0   extremes:0
+btg= 96.2637 2.89535 4.11821 
+@@@ ID 55 : -316.969723 for     79.8093    93.8778   -1.98969
+@@@ ID 56 : -338.933634 for     58.6466    90.1024  -0.157989
+@@@ ID 57 : -261.827144 for     40.9253    31.1874    2.15645
+@@@ ID 58 : -167.501097 for     52.4526    22.6813   -2.27021
+@@@ ID 59 : -355.873283 for     47.1045    99.9891    4.68264
+@@@ ID 60 : -257.448090 for     43.8783    32.5254   0.924458
+@@@ ID 61 : -133.939508 for     42.7338    14.5164   -1.75879
+@@@ ID 62 : -66.194554 for     38.1642    6.27369   -4.92611
+@@@ ID 63 : -355.848348 for     47.1224    99.9602    4.68743
+@@@ ID 64 : -4.395246 for     43.8006     0.0001   -1.060sed: can't read s/!LF/-3.46325/g: No such file or directory
+sed: can't read s/!LF/0.569506/g: No such file or directory
+sed: can't read s/!LF/2.65071/g: No such file or directory
+sed: can't read s/!LF/-2.23/g: No such file or directory
+sed: can't read s/!LF/-4.49379/g: No such file or directory
+sed: can't read s/!LF/5/g: No such file or directory
+sed: can't read s/!LF/5/g: No such file or directory
+sed: can't read s/!LF/1.96696/g: No such file or directory
+sed: can't read s/!LF/-4.62072/g: No such file or directory
+sed: can't read s/!LF/5/g: No such file or directory
+sed: can't read s/!LF/3.50368/g: No such file or directory
+sed: can't read s/!LF/0.899844/g: No such file or directory
+sed: can't read s/!LF/-2.24078/g: No such file or directory
+sed: can't read s/!LF/2.33571/g: No such file or directory
+sed: can't read s/!LF/-1.23973/g: No such file or directory
+sed: can't read s/!LF/-3.0343/g: No such file or directory
+sed: can't read s/!LF/-5/g: No such file or directory
+sed: can't read s/!LF/-0.339196/g: No such file or directory
