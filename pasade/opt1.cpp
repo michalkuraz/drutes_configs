@@ -23,7 +23,7 @@ opt1::opt1 ( void ) : objective_function ()
     long i;
     FILE *g ;
 
-    Dim = 3;
+    Dim = 2;
 
 #if defined ( __MULTIOBJECTIVE__ )
     Obj = 3 ;
@@ -45,14 +45,12 @@ opt1::opt1 ( void ) : objective_function ()
   p5 \in ( 0.000, 0.10 )
 */
 
-    Domain[0][0]=1e-6;
-    Domain[0][1]=1e-2;
+    Domain[0][0]=1e-3;
+    Domain[0][1]=10.0;
     
     Domain[1][0]=1e-3;
-    Domain[1][1]=0.8;
+    Domain[1][1]=10.0;
     
-    Domain[2][0] = 1e-4;
-    Domain[2][1] = 0.8;
  
     
     //optimum = new double[Obj] ;
