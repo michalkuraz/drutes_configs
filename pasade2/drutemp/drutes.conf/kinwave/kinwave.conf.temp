@@ -47,7 +47,7 @@ Ks
 
 #define folowing properties per layer
 #  h_orb    c_s   rho_s   lambda_a lambda_d   lost factor
-0.004      330.0   1.0     !LA       !LD   !LF
+0.004      330.0   1.0     !LA       !LD   0
   
   
  
