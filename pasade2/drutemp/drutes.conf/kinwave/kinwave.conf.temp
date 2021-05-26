@@ -45,9 +45,17 @@ y
 Ks
 1e-16 
 
+
+#use file drutes.conf/kinwave/initcond to specify for each node your initial condition [y/n]
+#if [n] define it for each material below 
+#if [y] set for c_s on lines below value -99 and supply initial conditions for c_s for each node in drutes.conf/kinwave/initcond
+n
+
+
+
 #define folowing properties per layer
-#  h_orb    c_s   rho_s   lambda_a lambda_d   lost factor
-0.004      330.0   1.0     !LA       !LD   0
+#  h_orb    c_s   rho_s   lambda_a lambda_d   lost factor  ncs
+0.004      330.0   1.0     !LA       !LD   !LL      !LCS
   
   
  
