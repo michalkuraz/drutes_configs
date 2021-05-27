@@ -13,16 +13,16 @@ function run_drutes {
   A=$2
   B=$3
   C=$4
-  D=$5
+
  
   
-  tisk=$6
+  tisk=$5
   
 
  
    
 #   substitution of parameters into input files for drutes 
-  sed -e 's/!LA/'$A'/g' -e 's/!LD/'$B'/g' -e 's/!LL/'$C'/g' -e 's/!LCS/'$D'/g'  drutes.conf/kinwave/kinwave.conf.temp > drutes.conf/kinwave/kinwave.conf
+  sed -e 's/!LA/'$A'/g' -e 's/!LD/'$B'/g' -e 's/!DSP/'$C'/g'  drutes.conf/kinwave/kinwave.conf.temp > drutes.conf/kinwave/kinwave.conf
 
 
   
@@ -67,22 +67,22 @@ done < pars.in
   
 #execute drutes function in parallel
 let z=0
-while read l a b c d
+while read l a b c 
   do
     if [[  $l == "p"  ]]; then
       let z=$z+1
       if [[ $z -lt $nproc ]] ; then
-        run_drutes $z $a $b $c $d    &
+        run_drutes $z $a $b $c   &
       else
-        run_drutes $z $a $b $c $d
+        run_drutes $z $a $b $c
       fi
     fi
     if [[  $l == "t"  ]]; then
       let z=$z+1
       if [[ $z -lt $nproc ]] ; then
-        run_drutes $z $a $b $c $d $l  &
+        run_drutes $z $a $b $c  $l  &
       else
-        run_drutes $z $a $b $l $c $d
+        run_drutes $z $a $b $c  $l
       fi
     fi
   done < pars.in

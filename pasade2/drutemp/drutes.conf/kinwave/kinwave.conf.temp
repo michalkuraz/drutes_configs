@@ -54,8 +54,8 @@ n
 
 
 #define folowing properties per layer
-#  h_orb    c_s   rho_s   lambda_a lambda_d   lost factor  ncs
-0.004      330.0   1.0     !LA       !LD   !LL      !LCS
+#  h_orb    c_s   rho_s   lambda_a lambda_d   lost factor  ncs   dispersion
+0.004      330.0   1.0     !LA       !LD       0      1.0         !DSP
   
   
  
