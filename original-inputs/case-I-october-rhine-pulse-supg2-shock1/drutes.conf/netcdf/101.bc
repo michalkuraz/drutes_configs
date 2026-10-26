@@ -1,0 +1,7 @@
+
+# Time [s], concentration [consistent model mass unit/m3].
+# Equal NOMINAL reference-cell Q*C integral, not verified FE boundary mass.
+# Guard beyond end_time plus any final step overshoot.
+0.0 1.000000000000000
+21600.0 0.0
+1728000.0 0.0

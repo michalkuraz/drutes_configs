@@ -1,0 +1,5 @@
+
+# Rhine inlet is clean in scenario 3b; netcdf.conf uses the constant zero record.
+0.0 0.0
+172800.0 0.0
+17280000.0 0.0

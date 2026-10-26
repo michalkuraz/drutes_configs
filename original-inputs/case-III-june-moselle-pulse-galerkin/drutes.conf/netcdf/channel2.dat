@@ -1,0 +1,21 @@
+# Lower Moselle: model line derived from routed hydrological cell centres.
+# Extended upstream to the physical western inlet 102 for scenarios 3a/3b.
+# First point intersects the existing mesh boundary at the first cell-centre northing.
+# WGS84 / UTM zone 32N, x y [m]; points ordered downstream toward the Rhine.
+# Last point is projected onto segment 22 of the existing channel.dat.
+# Prepared 2026-10-04; a coarse model line, not a surveyed river centreline.
+323953.045465 5506738.868210
+324190.399502 5506738.868210
+333205.460558 5506453.756626
+333633.742927 5520349.365817
+342625.765144 5520079.468257
+351617.912313 5519824.575678
+352000.573504 5533720.828539
+360969.633136 5533481.117805
+361329.756045 5547377.816212
+370275.683136 5547153.267389
+370613.182844 5561050.408460
+379535.931964 5560841.000908
+388458.783961 5560646.557157
+388750.248966 5574544.293273
+400167.082732 5575386.962819

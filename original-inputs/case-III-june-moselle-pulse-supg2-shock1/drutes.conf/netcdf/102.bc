@@ -1,0 +1,6 @@
+# Moselle inlet 102: time [s], concentration [consistent model mass unit/m3].
+# Continuous unit-concentration release for the 100-day experiment.
+# Guard row is beyond end time plus any final-step overshoot.
+0.0 1.0
+172800.0 0.0
+17280000.0 0.0

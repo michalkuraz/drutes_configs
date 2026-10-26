@@ -1,0 +1,5 @@
+/shared-data/*.nc
+**/out/
+**/*.log
+.DS_Store
+._*
